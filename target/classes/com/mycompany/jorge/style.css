@@ -1,0 +1,155 @@
+/* ================================
+   COLORS MANUALMENTE DEFINIDAS
+================================ */
+/*
+primary: #230312
+primary-light: #3a0720
+primary-dark: #15010a
+text-light: #ffffff
+text-dark: #1a1a1a
+bg-light: #f7f7f7
+bg-white: #ffffff
+border-light: #d0d0d0
+*/
+
+/* ================================
+   LAYOUT GLOBAL
+================================ */
+.root {
+    -fx-font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    -fx-background-color: #f7f7f7;
+}
+
+/* ================================
+   MENU BAR
+================================ */
+.menu-bar {
+    -fx-background-color: #230312;
+}
+
+.menu-bar .label {
+    -fx-text-fill: #ffffff;
+    -fx-font-weight: bold;
+}
+
+.menu-item {
+    -fx-background-color: #15010a;
+    -fx-text-fill: #ffffff;
+}
+
+.menu-item:hover {
+    -fx-background-color: #3a0720;
+}
+
+/* ================================
+   LABELS
+================================ */
+.label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #1a1a1a;
+    -fx-font-weight: bold;
+}
+
+/* Títulos */
+.label-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #230312;
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.button {
+    -fx-background-color: #230312;
+    -fx-text-fill: #ffffff;
+    -fx-background-radius: 4;
+    -fx-font-weight: bold;
+    -fx-padding: 6 12 6 12;
+}
+
+.button:hover {
+    -fx-background-color: #3a0720;
+}
+
+.button:pressed {
+    -fx-background-color: #15010a;
+}
+
+/* ================================
+   TEXTFIELDS & COMBOBOX
+================================ */
+.text-field, .combo-box {
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 4;
+    -fx-border-color: #d0d0d0;
+    -fx-border-radius: 4;
+    -fx-padding: 4;
+}
+
+.text-field:hover, .combo-box:hover {
+    -fx-border-color: #230312;
+}
+
+.text-field:focused, .combo-box:focused {
+    -fx-border-color: #230312;
+    -fx-border-width: 2;
+}
+
+/* Lista interna da ComboBox */
+.combo-box .list-cell {
+    -fx-background-color: #ffffff;
+    -fx-text-fill: #1a1a1a;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #3a0720;
+    -fx-text-fill: #ffffff;
+}
+
+/* ================================
+   LISTVIEW
+================================ */
+.list-view {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #d0d0d0;
+}
+
+.list-cell:hover {
+    -fx-background-color: #3a0720;
+    -fx-text-fill: #ffffff;
+}
+
+.list-cell:selected {
+    -fx-background-color: #230312;
+    -fx-text-fill: #ffffff;
+}
+
+/* ================================
+   SCROLLPANE
+================================ */
+.scroll-pane {
+    -fx-background-color: transparent;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent;
+}
+
+/* ================================
+   RIGHT PANEL CONTENT
+================================ */
+#drinkName {
+    -fx-text-fill: #230312;
+}
+
+#drinkInstructions {
+    -fx-fill: #1a1a1a;
+}
+
+/* ================================
+   PROGRESS INDICATOR
+================================ */
+.progress-indicator {
+    -fx-progress-color: #230312;
+}

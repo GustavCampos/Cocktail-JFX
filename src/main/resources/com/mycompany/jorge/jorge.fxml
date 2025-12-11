@@ -1,26 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ComboBox?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ProgressIndicator?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.control.SplitPane?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.*?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="Infinity" maxWidth="Infinity" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.jorge.AppController">
+<VBox maxHeight="Infinity" maxWidth="Infinity" prefHeight="600" prefWidth="800"
+      xmlns="http://javafx.com/javafx/25"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.mycompany.jorge.AppController">
 
     <children>
 
@@ -29,119 +18,140 @@
             <menus>
                 <Menu text="File">
                     <items>
-                        <MenuItem text="New" />
-                        <MenuItem text="Open…" />
-                        <SeparatorMenuItem />
-                        <MenuItem text="Close" />
-                        <MenuItem text="Quit" />
+                        <MenuItem text="New"/>
+                        <MenuItem text="Open…"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Close"/>
+                        <MenuItem text="Quit"/>
                     </items>
                 </Menu>
                 <Menu text="Edit">
                     <items>
-                        <MenuItem text="Undo" />
-                        <MenuItem text="Redo" />
+                        <MenuItem text="Undo"/>
+                        <MenuItem text="Redo"/>
                     </items>
                 </Menu>
                 <Menu text="Help">
                     <items>
-                        <MenuItem text="About" />
+                        <MenuItem text="About"/>
                     </items>
                 </Menu>
             </menus>
         </MenuBar>
 
-        <!-- MAIN RESPONSIVE SPLIT -->
+        <!-- MAIN SPLIT -->
         <SplitPane dividerPositions="0.25, 0.6" VBox.vgrow="ALWAYS">
 
             <!-- LEFT PANEL -->
             <ScrollPane fitToWidth="true" minWidth="200">
                 <content>
-                    <VBox fillWidth="true" spacing="10">
-                        <padding><Insets bottom="8" left="8" right="8" top="8" /></padding>
+                    <VBox spacing="12" fillWidth="true">
+                        <padding><Insets top="12" right="12" bottom="12" left="12"/></padding>
 
                         <Label text="Search a drink" />
 
                         <HBox spacing="8">
-                            <TextField fx:id="searchDrinkTF" HBox.hgrow="ALWAYS" />
-                            <Button onAction="#searchDrink" text="Search" />
+                            <TextField fx:id="searchDrinkTF" HBox.hgrow="ALWAYS"/>
+                            <Button text="Search" onAction="#searchDrink"/>
                         </HBox>
 
-<!--                        <Label text="Pesquisa ingrediente"/>
+                        <Separator/>
 
-                        <HBox spacing="8">
-                            <TextField HBox.hgrow="ALWAYS"/>
-                            <Button text="Buscar"/>
-                        </HBox>-->
+                        <Label text="Drink Filters" style="-fx-font-size: 14px; -fx-font-weight: bold;" />
 
-                        <Separator />
-
-                        <Label text="Drink Filters" />
-                        
                         <Label text="Category" />
-                        <ComboBox fx:id="categoryFilter" />
-                        
+                        <ComboBox fx:id="categoryFilter" maxWidth="Infinity"/>
+
                         <Label text="Glass" />
-                        <ComboBox fx:id="glassFilter" />
-                        
-                        <Label text="Ingredient" />                   
-                        <ComboBox fx:id="ingredientFilter" />
-    
+                        <ComboBox fx:id="glassFilter" maxWidth="Infinity"/>
+
+                        <Label text="Ingredient" />
+                        <ComboBox fx:id="ingredientFilter" maxWidth="Infinity"/>
+
                         <Label text="Alcoholic" />
-                        <ComboBox fx:id="alcoholicFilter" />
+                        <ComboBox fx:id="alcoholicFilter" maxWidth="Infinity"/>
 
-                        <Button onAction="#searchDrinkWithFilter" text="Search with filters" />
+                        <Button text="Search with filters"
+                                onAction="#searchDrinkWithFilter"
+                                maxWidth="Infinity"/>
 
-                        <Separator />
+                        <Separator/>
 
-                        <Button onAction="#displayRandomDrink" text="Random Drink" />
+                        <Button text="Random Drink"
+                                onAction="#displayRandomDrink"
+                                maxWidth="Infinity"/>
+
                     </VBox>
                 </content>
             </ScrollPane>
 
             <!-- CENTER PANEL -->
             <VBox spacing="8">
-                <padding><Insets left="8" top="8" /></padding>
+                <padding><Insets left="8" top="8"/></padding>
 
-                <Label text="Results" />
-
-                <ListView fx:id="itemList" onMouseClicked="#displayListItem" VBox.vgrow="ALWAYS" />
+                <Label text="Results"/>
+                <ListView fx:id="itemList" onMouseClicked="#displayListItem"
+                          VBox.vgrow="ALWAYS"/>
             </VBox>
 
             <!-- RIGHT PANEL -->
             <AnchorPane minWidth="400" prefWidth="400">
                 <children>
-                    <!-- Scrollable content -->
-                    <ScrollPane fx:id="drinkScrollPane" fitToHeight="true" fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0">
+
+                    <ScrollPane fx:id="drinkScrollPane"
+                                fitToWidth="true" fitToHeight="true"
+                                hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+                                AnchorPane.topAnchor="0"
+                                AnchorPane.bottomAnchor="0"
+                                AnchorPane.leftAnchor="0"
+                                AnchorPane.rightAnchor="0">
 
                         <content>
-                            <!-- VBox holds ALL content for proper scrolling -->
-                            <VBox fx:id="drinkContentBox" fillWidth="true" spacing="10">
-                                <padding>
-                                    <Insets bottom="10" left="10" right="10" top="10" />
-                                </padding>
+
+                            <VBox fx:id="drinkContentBox" spacing="12" fillWidth="true">
+                                <padding><Insets top="10" right="10" bottom="10" left="10"/></padding>
 
                                 <!-- Placeholder -->
-                                <Label fx:id="drinkPlaceholderText" style="-fx-font-size: 14px;" text="Your drink will be displayed here" wrapText="true" />
+                                <Label fx:id="drinkPlaceholderText"
+                                       style="-fx-font-size: 14px;"
+                                       text="Your drink will be displayed here"
+                                       wrapText="true"/>
 
                                 <!-- Drink Name -->
-                                <Label fx:id="drinkName" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
+                                <Label fx:id="drinkName"
+                                       style="-fx-font-size: 24px; -fx-font-weight: bold;" />
 
                                 <!-- Drink Image -->
-                                <ImageView fx:id="drinkImage" fitWidth="300" preserveRatio="true" />
+                                <ImageView fx:id="drinkImage"
+                                           fitWidth="300"
+                                           preserveRatio="true"/>
 
                                 <!-- Ingredients -->
-                                <Label style="-fx-font-size: 18px; -fx-underline: true;" text="Ingredients:" />
-                                <VBox fx:id="drinkIngredientsList" spacing="4" />
+                                <Label text="Ingredients:"
+                                       style="-fx-font-size: 18px; -fx-underline: true;" />
+
+                                <VBox fx:id="drinkIngredientsList" spacing="4"/>
 
                                 <!-- Instructions -->
-                                <Label style="-fx-font-size: 18px; -fx-underline: true;" text="Instructions:" />
-                                <Text fx:id="drinkInstructions" wrappingWidth="300" />
+                                <Label text="Instructions:"
+                                       style="-fx-font-size: 18px; -fx-underline: true;" />
+
+                                <Text fx:id="drinkInstructions"
+                                      wrappingWidth="300"/>
                             </VBox>
+
                         </content>
                     </ScrollPane>
 
-                    <!-- Loader Overlay -->
-                    <ProgressIndicator fx:id="drinkLoadingIndicator" maxHeight="50" maxWidth="50" style="-fx-background-color: rgba(255,255,255,0.5);" visible="false" AnchorPane.bottomAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" />
+                    <!-- Loader -->
+                    <ProgressIndicator fx:id="drinkLoadingIndicator"
+                                       maxHeight="50" maxWidth="50"
+                                       visible="false"
+                                       style="-fx-background-color: rgba(255,255,255,0.5);"
+                                       AnchorPane.topAnchor="0"
+                                       AnchorPane.bottomAnchor="0"
+                                       AnchorPane.leftAnchor="0"
+                                       AnchorPane.rightAnchor="0"/>
                 </children>
             </AnchorPane>
 

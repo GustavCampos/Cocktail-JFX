@@ -21,5 +21,6 @@ com/mycompany/jorge/AppController$5.class
 com/mycompany/jorge/Services/CocktailService.class
 com/mycompany/jorge/AppController$2.class
 com/mycompany/jorge/Models/FilterDrink.class
+com/mycompany/jorge/jorge.fxml
 com/mycompany/jorge/Models/Glass.class
 com/mycompany/jorge/Models/DrinkModel.class
